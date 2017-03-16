@@ -24,12 +24,12 @@ RUN cd / &&\
 cp -r /clang+llvm-3.6.2-x86_64-linux-gnu-ubuntu-14.04/* /usr/ &&\
 rm -rf /clang+llvm-3.6.2-x86_64-linux-gnu-ubuntu-14.04
 
-RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/clang++ 20 
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/clang 20 
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/clang++ 20
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/clang 20
 
 # Install Swift keys
 RUN wget --no-verbose -O - https://swift.org/keys/all-keys.asc | gpg --import - && \
-    gpg --keyserver hkp://pool.sks-keyservers.net --refresh-keys Swift
+    gpg --keyserver pgp.mit.edu --refresh-keys Swift
 
 # Install Swift Ubuntu 14.04 Snapshot
 #https://swift.org/builds/swift-3.0.1-release/ubuntu1404/swift-3.0.1-RELEASE/swift-3.0.1-RELEASE-ubuntu14.04.tar.gz
