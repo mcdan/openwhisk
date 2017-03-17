@@ -2,7 +2,7 @@
 
 events {
 {# default: 1024 #}
-    worker_connections  4096;  
+    worker_connections  4096;
 }
 
 http {
@@ -17,11 +17,12 @@ http {
     access_log /logs/nginx_access.log combined-upstream;
 
     server {
+        listen 80;
         listen 443 default ssl;
 
         # match namespace, note while OpenWhisk allows a space and period, they are not permitted here
         server_name ~^(?<namespace>[\w@-]+)\.*.*$;
- 
+
         ssl_session_cache    shared:SSL:1m;
         ssl_session_timeout  10m;
         ssl_certificate      /etc/nginx/openwhisk-cert.pem;
